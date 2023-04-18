@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 07:49:35 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 11:45:50 by ceatgie          ###   ########.fr       */
+/*   Updated: 2023/04/18 13:59:05 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,21 @@ void	ft_create_map_in_tab(t_cub *data);
 //										Parsing
 //	----------------------------------------------------------------------------
 
+bool	ft_is_no_n(t_cub *data);
+bool	ft_is_no_w(t_cub *data);
+bool	ft_is_no_s(t_cub *data);
+bool	ft_is_no_e(t_cub *data);
+int		ft_is_multiple_n(t_cub *data);
+int		ft_is_multiple_e(t_cub *data);
+int		ft_is_multiple_s(t_cub *data);
+int		ft_is_multiple_w(t_cub *data);
 bool	ft_check_cub_format(char *argv);
 void	ft_check_cub(int argc, char *argv[]);
+bool	ft_check_if_player(t_cub *data);
+bool	ft_check_wall(t_cub *data);
+bool	ft_check_if_forbidden_char(t_cub *data);
+bool	ft_is_no_equal_line(t_cub *data);
+void	ft_parsing_manager(t_cub *data);
 
 //	----------------------------------------------------------------------------
 //										Utils

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_map_in_tab.c                             :+:      :+:    :+:   */
+/*   ft_is_multiple_s.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 10:28:24 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 13:06:58 by ceatgie          ###   ########.fr       */
+/*   Created: 2023/04/18 12:42:09 by ceatgie           #+#    #+#             */
+/*   Updated: 2023/04/18 12:54:09 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,43 @@
 //							   ------------
 //	
 //	- Take as parameters: pointer to cub struct
+//
+//	- Check if there is s in the map
 //	
-//	- Calculate how many \n there is in FileDescriptor to know how many 
-//		get_next_line we have to do to read the entire file
+//	- Then check if there is multiple s in the map
 //	
-//	- Return the number of get_next_line that we have to do to read the
-//		entire file
+//	- Return -1 if there is no s in the map
+//	
+//	- Return 1 if there is multiple s in the map
+//	
+//	- Return 0 if there is no multiple s in the map
 //	
 //	===================================================================
 
-void	ft_create_map_in_tab(t_cub *data)
+int	ft_is_multiple_s(t_cub *data)
 {
-	int		i;
-	int		fd;
+	int	i;
+	int	j;
+	int	cpt;
 
+	if (ft_is_no_s(data))
+		return (-1);
 	i = 0;
-	data->map_tab = malloc(sizeof(char *) * (data->line + 2));
-	if (!data->map_tab)
-		return (ft_putstr_fd(RED, "Error\nMalloc of tab_map broke\n", 2));
-	fd = open(data->argv[1], O_RDONLY);
-	i = 0;
+	j = 0;
+	cpt = 0;
 	while (i <= data->line)
 	{
-		data->map_tab[i] = get_next_line(fd);
-		if (!data->map_tab[i])
-			return (ft_putstr_fd(RED,
-				"Error\nMalloc of tab_map using gnl broke\n", 2));
+		while (j < data->size)
+		{
+			if (data->map_tab[i][j] == 'S')
+				cpt++;
+			j++;
+		}
+		j = 0;
 		i++;
 	}
-	data->map_tab[i] = NULL;
-	close(fd);
+	if (cpt > 1)
+		return (1);
+	else
+		return (0);
 }

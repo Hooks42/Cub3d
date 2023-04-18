@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_parsing_manager.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 10:13:34 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 14:00:29 by ceatgie          ###   ########.fr       */
+/*   Created: 2023/04/18 13:49:39 by ceatgie           #+#    #+#             */
+/*   Updated: 2023/04/18 13:57:58 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int argc, char *argv[])
+void	ft_parsing_manager(t_cub *data)
 {
-	t_cub	data;
-
-	ft_check_cub(argc, argv);
-	ft_init_struct(argc, argv, &data);
-	ft_create_map_in_tab(&data);
-	ft_parsing_manager(&data);
-	ft_free(&data);
+	if (ft_check_wall(data))
+	{
+		ft_putstr_fd(RED, "Error\nMap is not surrounded by a wall !\n", 2);
+		exit(0);
+	}
+	if (ft_is_no_equal_line(data))
+	{
+		ft_putstr_fd(RED, "Error\nLines are not equal !\n", 2);
+		exit(0);
+	}
+	if (ft_check_if_forbidden_char(data))
+	{
+		ft_putstr_fd(RED, "Error\nForbidden char detected !\n", 2);
+		exit(0);
+	}
+	if (!ft_check_if_player(data))
+		exit(0);
 }

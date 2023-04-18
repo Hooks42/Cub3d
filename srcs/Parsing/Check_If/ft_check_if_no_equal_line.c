@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_map_in_tab.c                             :+:      :+:    :+:   */
+/*   ft_check_if_no_equal_line.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 10:28:24 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 13:06:58 by ceatgie          ###   ########.fr       */
+/*   Created: 2023/04/18 13:43:46 by ceatgie           #+#    #+#             */
+/*   Updated: 2023/04/18 13:46:33 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,27 @@
 //	
 //	- Take as parameters: pointer to cub struct
 //	
-//	- Calculate how many \n there is in FileDescriptor to know how many 
-//		get_next_line we have to do to read the entire file
+//	- Get the size of the first row and compare all others with
 //	
-//	- Return the number of get_next_line that we have to do to read the
-//		entire file
+//	- Return 1 if there are no equal line
+//
+//	- Return 0 if there are equal line
 //	
 //	===================================================================
 
-void	ft_create_map_in_tab(t_cub *data)
+bool	ft_is_no_equal_line(t_cub *data)
 {
-	int		i;
-	int		fd;
+	int	size;
+	int	i;
 
-	i = 0;
-	data->map_tab = malloc(sizeof(char *) * (data->line + 2));
-	if (!data->map_tab)
-		return (ft_putstr_fd(RED, "Error\nMalloc of tab_map broke\n", 2));
-	fd = open(data->argv[1], O_RDONLY);
-	i = 0;
-	while (i <= data->line)
+	size = ft_strlen(data->map_tab[0]);
+	while (i < data->line)
 	{
-		data->map_tab[i] = get_next_line(fd);
-		if (!data->map_tab[i])
-			return (ft_putstr_fd(RED,
-				"Error\nMalloc of tab_map using gnl broke\n", 2));
+		if (ft_strlen(data->map_tab[i]) != size)
+			return (1);
 		i++;
 	}
-	data->map_tab[i] = NULL;
-	close(fd);
+	if (ft_strlen(data->map_tab[i]) != size - 1)
+		return (1);
+	return (0);
 }
