@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 10:38:08 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 11:26:24 by ceatgie          ###   ########.fr       */
+/*   Updated: 2023/04/18 14:10:54 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	ft_size(t_cub *data)
 	if (red == -1)
 		return (ft_putstr_fd(RED, "Error\nRead fonction return -1\n", 2), -1);
 	buffer[red] = '\0';
+	if (!buffer[0])
+		return (ft_putstr_fd(RED, "Error\nMap is empty !\n", 2), -1);
 	while (buffer[i] != '\n')
 		i++;
 	close(fd);
