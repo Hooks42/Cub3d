@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hook <hook@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 07:49:35 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 13:59:05 by ceatgie          ###   ########.fr       */
+/*   Updated: 2023/04/24 06:11:04 by hook             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 //										Struct
 //	----------------------------------------------------------------------------
 
-typedef struct	cub3d
+typedef struct cub3d
 {
 	int		argc;
 	char	**argv;
@@ -91,6 +91,5 @@ void	ft_init_struct(int argc, char *argv[], t_cub *data);
 int		ft_how_many_lines(t_cub *data);
 int		ft_size(t_cub *data);
 void	ft_free(t_cub *data);
-
 
 #endif

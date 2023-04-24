@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_if_player.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hook <hook@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:32:12 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 13:30:04 by ceatgie          ###   ########.fr       */
+/*   Updated: 2023/04/24 06:09:58 by hook             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 bool	ft_check_if_player(t_cub *data)
 {
 	int	tab[4];
-	int cpt;
+	int	cpt;
 	int	i;
 
 	i = 0;
@@ -47,10 +47,10 @@ bool	ft_check_if_player(t_cub *data)
 	}
 	if (cpt > 1)
 		return (ft_putstr_fd(RED,
-			"Error\nThere is more than 1 start position !\n", 2), 0);
-	if (!ft_is_multiple_e(data) || !ft_is_multiple_n(data) || !ft_is_multiple_s(data)
-		|| !ft_is_multiple_w(data))
+				"Error\nThere is more than 1 start position !\n", 2), 0);
+	if (!ft_is_multiple_e(data) || !ft_is_multiple_n(data)
+		|| !ft_is_multiple_s(data) || !ft_is_multiple_w(data))
 		return (1);
 	return (ft_putstr_fd(RED,
-		"Error\nThere is multiple same start positions !\n", 2), 0);
+			"Error\nThere is multiple same start positions !\n", 2), 0);
 }

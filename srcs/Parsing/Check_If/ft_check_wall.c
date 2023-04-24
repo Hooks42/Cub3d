@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_wall.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hook <hook@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:25:04 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 13:34:51 by ceatgie          ###   ########.fr       */
+/*   Updated: 2023/04/24 06:08:45 by hook             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ bool	ft_check_wall(t_cub *data)
 	j = 0;
 	while (i < data->line)
 	{
-		if (data->map_tab[i][0] != '1' || data->map_tab[i][data->size - 1] != '1')
+		if (data->map_tab[i][0] != '1' ||
+			data->map_tab[i][data->size - 1] != '1')
 			return (1);
 		i++;
 	}

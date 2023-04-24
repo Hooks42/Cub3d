@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hook <hook@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 10:13:34 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 14:00:29 by ceatgie          ###   ########.fr       */
+/*   Updated: 2023/04/24 06:10:32 by hook             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_cub	data;
 

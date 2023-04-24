@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hook <hook@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:38:55 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 12:02:29 by ceatgie          ###   ########.fr       */
+/*   Updated: 2023/04/24 06:10:16 by hook             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	ft_free(t_cub *data)
 
 	i = -1;
 	if (!data->map_tab)
-		return (ft_putstr_fd(RED, "Error\nCan't free because map_tab is NULL\n", 2));
+		return (ft_putstr_fd(RED,
+				"Error\nCan't free because map_tab is NULL\n", 2));
 	while (data->map_tab[++i])
 		free(data->map_tab[i]);
 	free(data->map_tab);

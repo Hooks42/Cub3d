@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_map_in_tab.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hook <hook@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 10:28:24 by ceatgie           #+#    #+#             */
-/*   Updated: 2023/04/18 13:06:58 by ceatgie          ###   ########.fr       */
+/*   Updated: 2023/04/24 06:08:00 by hook             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_create_map_in_tab(t_cub *data)
 		data->map_tab[i] = get_next_line(fd);
 		if (!data->map_tab[i])
 			return (ft_putstr_fd(RED,
-				"Error\nMalloc of tab_map using gnl broke\n", 2));
+					"Error\nMalloc of tab_map using gnl broke\n", 2));
 		i++;
 	}
 	data->map_tab[i] = NULL;
